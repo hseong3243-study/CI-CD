@@ -13,4 +13,9 @@ public class HelloController {
     public ResponseEntity<String> hello() {
         return ResponseEntity.ok("Hello, world!");
     }
+
+    @GetMapping("/sonar-cloud")
+    public ResponseEntity<String> sonarCloud() {
+        return ResponseEntity.ok("Hello, sonarCloud!");
+    }
 }

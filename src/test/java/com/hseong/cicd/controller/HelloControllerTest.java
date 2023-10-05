@@ -23,4 +23,12 @@ class HelloControllerTest {
         resultActions.andExpect(status().isOk())
             .andDo(print());
     }
+
+    @Test
+    void helloSonarCloud() throws Exception {
+        ResultActions resultActions = mockMvc.perform(get("/api/sonar-cloud"));
+
+        resultActions.andExpect(status().isOk())
+            .andDo(print());
+    }
 }
