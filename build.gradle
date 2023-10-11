@@ -34,9 +34,6 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-test {
     finalizedBy jacocoTestReport  // 테스트 실행 후 항상 report가 생성됩니다.
 }
 
@@ -57,7 +54,7 @@ jacoco {
 jacocoTestReport {
     dependsOn test  // report를 생성하기 전에 테스트를 실행해야합니다.
     reports {
-        xml.required = false
+        xml.required = true
         csv.required = false
         html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
