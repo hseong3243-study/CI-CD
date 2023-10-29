@@ -1,4 +1,4 @@
-name: Java CI with Gradle
+name: CD
 
 on:
   push:
@@ -42,3 +42,13 @@ jobs:
 
     - name: Upload to S3
       run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://dev-study-bucket/CICD/$GITHUB_SHA.zip
+      
+    - name: Deploy
+      run: |
+        aws deploy create-deployment \
+        --application-name CI-CD \
+        --deployment-config-name CodeDeployDefault.AllAtOnce \
+        --deployment-group-name CD-study \
+        --file-exists-behavior OVERWRITE \
+        --s3-location bucket=dev-study-bucket,bundleType=zip,key=CICD/$GITHUB_SHA.zip \
+        --region ap-northeast-2 \
