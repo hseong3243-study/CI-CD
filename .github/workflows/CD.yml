@@ -46,7 +46,7 @@ jobs:
     - name: Deploy
       run: |
         aws deploy create-deployment \
-        --application-name CI-CD \
+        --application-name CD-study \
         --deployment-config-name CodeDeployDefault.AllAtOnce \
         --deployment-group-name CD-study \
         --file-exists-behavior OVERWRITE \
