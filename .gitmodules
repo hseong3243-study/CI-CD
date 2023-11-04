@@ -1,0 +1,3 @@
+[submodule "config"]
+	path = config
+	url = https://hseong3243-study@github.com/hseong3243-study/config.git
